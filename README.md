@@ -17,8 +17,13 @@
 3. Run the app:
 ```docker-compose up```
 
+App works on port=3000
+
+Web server works on port=9000
+
 ## Docker hub
 
 Web Server: https://hub.docker.com/r/kokkareva/dictionary-api
 
 Client app: https://hub.docker.com/r/kokkareva/dictionary-client
+
