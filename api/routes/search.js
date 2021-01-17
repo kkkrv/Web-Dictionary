@@ -1,16 +1,22 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 const mongoose = require("mongoose");
 
-// Variable to be sent to Frontend with Database status
 let databaseConnection = "Waiting for Database response...";
+console.log(databaseConnection);
 let retryTime = 2000;
-router.get("/", function(req, res, next) {
-    res.send(databaseConnection);
+
+router.get('/', function(req, res, next) {
+    let term = req.body.term;
+    const con = connectWithRetry();
+    mongoose.Promise = global.Promise;
+    const db = mongoose.connection;
+    db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+    res.send("API is working properly");
 });
 
-// Connecting to MongoDB
-var connectWithRetry = () => {
+const connectWithRetry = () => {
     return mongoose.connect(
         process.env.MONGO_URL,
         { useNewUrlParser: true },
@@ -26,17 +32,11 @@ var connectWithRetry = () => {
         }
     )
 }
-connectWithRetry();
-
-mongoose.connection.on('error', error => {
-    console.log("Database connection error:", error);
-    setTimeout(connectWithRetry, retryTime);
-    databaseConnection = "Error connecting to Database";
-});
 
 // If connected to MongoDB send a success message
 mongoose.connection.once("open", () => {
     console.log("Connected to Database!");
     databaseConnection = "Connected to Database";
 });
+
 module.exports = router;
