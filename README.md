@@ -9,11 +9,15 @@
 
 ## Deployment
 
-Clone git repository:
-```git clone https://github.com/kkkrv/react_node_app.git```
+1. Clone git repository or copy docker-compose file
 
-Build the app:
+2. Build the app:
 ```docker-compose build```
 
-Run the app:
+3. Run the app:
 ```docker-compose up```
+
+## Docker hub
+
+Web Server: https://hub.docker.com/r/kokkareva/dictionary-api
+Client app: https://hub.docker.com/r/kokkareva/dictionary-client
