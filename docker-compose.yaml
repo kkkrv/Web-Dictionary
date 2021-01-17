@@ -6,9 +6,6 @@ services:
     restart: always
     ports:
       - "3000:3000"
-    working_dir: /client/src/app
-    volumes:
-      - ./client:/client/src/app
     depends_on:
       - mongodb
     networks:
@@ -19,9 +16,6 @@ services:
     restart: always
     ports:
       - "9000:9000"
-    volumes:
-      - ./api:/api
-      - /api/node_modules
     environment:
       - SECRET_KEY_BASE=secret
       - MONGO_URL=mongodb://mongodb:27017/dev

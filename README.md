@@ -9,7 +9,7 @@
 
 ## Deployment
 
-1. Clone git repository
+1. Copy docker-compose file to your machine
 
 2. Build the app:
 ```docker-compose build```
@@ -20,4 +20,5 @@
 ## Docker hub
 
 Web Server: https://hub.docker.com/r/kokkareva/dictionary-api
+
 Client app: https://hub.docker.com/r/kokkareva/dictionary-client
