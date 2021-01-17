@@ -9,7 +9,7 @@
 
 ## Deployment
 
-1. Clone git repository or copy docker-compose file
+1. Clone git repository
 
 2. Build the app:
 ```docker-compose build```
